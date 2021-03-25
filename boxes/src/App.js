@@ -1,10 +1,19 @@
 
 import './App.css';
+import Header from "./Header.js";
+import Footer from "./Footer.js";
+import Main from "./Main.js";
 
-function App() {
+
+
+const App = () => {
   return (
-    <h1>Hello world!</h1>
+    <div>
+      <Header />
+      <Main />
+      <Footer />
+    </div>
   );
-}
+};
 
 export default App;
