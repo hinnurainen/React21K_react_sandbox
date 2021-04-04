@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
 import "./App.css";
+
 
 class App extends Component {
   state = {
@@ -28,13 +31,36 @@ class App extends Component {
     let circleClass = `${this.state.counter === 0 ? "" : this.state.counter % 2 === 0 ? "even" : "odd"} circle`;
     return (
       <div>
+        <Header />
         <h1 className={circleClass}>{this.state.counter}</h1>
-        <button onClick={this.addHandler}>Add gone</button>
+        <button onClick={this.addHandler}>Add one</button>
         <button onClick={this.removeHandler}>Remove one</button>
         <button onClick={this.resetHandler}>Reset</button>
+        <Footer />
       </div>
     );
   }
 }
 
 export default App;
+
+/*
+import './App.css';
+import Header from "./Header.js";
+import Footer from "./Footer.js";
+import Main from "./Main.js";
+
+
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
+*/
