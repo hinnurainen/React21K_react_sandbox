@@ -28,11 +28,14 @@ class App extends Component {
   }
 
   render() {
+    let appStyle = "appstyle";
     let circleClass = `${this.state.counter === 0 ? "" : this.state.counter % 2 === 0 ? "even" : "odd"} circle`;
     return (
       <div>
         <Header />
-        <h1 className={circleClass}>{this.state.counter}</h1>
+        <section className={appStyle}>
+          <h1 className={circleClass}>{this.state.counter}</h1>
+        </section>
         <button onClick={this.addHandler}>Add one</button>
         <button onClick={this.removeHandler}>Remove one</button>
         <button onClick={this.resetHandler}>Reset</button>
