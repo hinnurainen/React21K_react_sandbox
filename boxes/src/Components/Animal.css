@@ -1,0 +1,16 @@
+.animalcard {
+  background-color: aqua;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #333;
+  padding: 1rem;
+}
+
+.animalcard img {
+  width: 200px;
+}
+
+.animallist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
