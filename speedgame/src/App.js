@@ -27,6 +27,7 @@ class App extends Component {
     showGameOver: false,
     rounds: 0,
     gameStart: false,
+    clickedOnce: false
   };
 
   timer = undefined;
@@ -40,10 +41,15 @@ class App extends Component {
       return;
     }
 
-    this.setState({
-      score: this.state.score + 1,
-      rounds: 0,
-    });
+    if (this.state.clickedOnce === false) {
+      this.setState({
+        score: this.state.score + 1,
+        rounds: 0,
+        clickedOnce: true,
+      });
+    } else {
+      return;
+    }
   };
 
   nextCircle = () => {
@@ -61,6 +67,7 @@ class App extends Component {
     this.setState({
       current: nextActive,
       rounds: this.state.rounds + 1,
+      clickedOnce: false,
     });
     console.log(this.state.rounds);
 
@@ -74,14 +81,28 @@ class App extends Component {
     this.nextCircle();
     this.setState({ gameStart: true });
     gameStartSound.play();
-  }
+  };
 
   endHandler = () => {
     gameStartSound.pause();
     gameEndSound.play();
+    let endScore = undefined;
+
+    if (this.state.score == 0) {
+      endScore = `Your score is ${this.state.score} and you can only dream about being Speedy!`;
+    } else if (this.state.score >= 1 && this.state.score <= 9) {
+      endScore = `Your score is ${this.state.score} and sorry to disappoint you but you are merely Slowy Gonzales!`;
+    } else if (this.state.score >= 10 && this.state.score <= 19) {
+      endScore = `Your score is ${this.state.score} and yes, you are the Speedy of your own life at least!`;
+    } else if (this.state.score >= 20) {
+      endScore = `Your score is ${this.state.score} - congratulations, you probably want to change your last name to Gonzales!`;
+    };
+
+    this.setState({ endMessage: endScore, });
+
     clearTimeout(this.timer);
-    this.setState({ showGameOver: true })
-  }
+    this.setState({ showGameOver: true });
+  };
 
   render() {
     const circlesList = this.state.circles.map((c) => {
@@ -89,13 +110,13 @@ class App extends Component {
     });
     return (
       <div>
-        <h1>Speedgame</h1>
+        <h1>Speedy game</h1>
         <p>Your score is: {this.state.score}</p>
         <div className="circles">
           {circlesList}</div>
         <button onClick={this.startHandler} disabled={this.state.gameStart}>Start</button>
         <button onClick={this.endHandler}>Stop</button>
-        {this.state.showGameOver && <GameOver score={this.state.score} />}
+        {this.state.showGameOver && <GameOver score={this.state.score} endMessage={this.state.endMessage} />}
       </div>
     );
   }
