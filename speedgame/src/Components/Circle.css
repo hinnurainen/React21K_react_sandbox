@@ -21,3 +21,7 @@
 .orange {
   background-color: orange;
 }
+
+.active {
+  background-image: url("../assets/img/Sun_icon.svg");
+}
