@@ -1,0 +1,12 @@
+h2 {
+  text-align: center;
+}
+
+.input-group {
+  background-color: rgb(250, 191, 139);
+  width: 300px;
+  margin: 1px auto;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
