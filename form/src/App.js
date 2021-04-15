@@ -35,7 +35,7 @@ class App extends Component {
           role={this.state.role}
           message={this.state.message}
         />
-        <Popup />
+        <Popup popup={this.popupHandler} />
       </div>
     );
   }
