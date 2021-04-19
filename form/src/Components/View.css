@@ -1,12 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+
 h2 {
   text-align: center;
 }
 
-.input-group {
-  background-color: rgb(250, 191, 139);
-  width: 300px;
-  margin: 1px auto;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
+.view {
+  padding: 2rem;
+}
+.notepad {
+  background: #f4f4f4;
+  margin: 1rem 0;
+  position: relative;
+  box-shadow: 0 0 5px rgb(121, 121, 121);
+}
+
+.notepad::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  border-left: 1px solid rgb(255, 77, 0);
+  border-right: 1px solid rgb(255, 77, 0);
+  position: absolute;
+  left: 35px;
+}
+
+.notepad p {
+  padding: 1rem;
+  border-bottom: 1px dotted rgb(145, 145, 145);
+  text-indent: 50px;
+}
+
+.notepad span {
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+  margin-left: 15px;
 }
