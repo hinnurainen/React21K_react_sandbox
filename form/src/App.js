@@ -43,9 +43,8 @@ class App extends Component {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(this.state.inputData)
     };
-    fetch("http://localhost:3001/notes", requestOptions)
-      .then(res => res.json())
-      .then(data => this.setState({ postId: data.id }));
+    fetch("http://localhost:3001/notes", requestOptions);
+    alert("Your note has been posted", window.location.reload());
   };
 
   render() {

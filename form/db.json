@@ -31,6 +31,14 @@
       "role": "Student",
       "message": "kljdföljk",
       "id": 4
+    },
+    {
+      "firstname": "Heidi",
+      "lastname": "Määttänen",
+      "number": "654321",
+      "role": "Student",
+      "message": "hellurei",
+      "id": 5
     }
   ]
 }
