@@ -17,7 +17,7 @@ const Popup = ({ firstname, lastname, number, role, message, submit }) => {
                     <p>Role:<span>{role}</span></p>
                     <p>Message:<span>{message}</span></p>
                     <button onClick={submit}>Yes, I'm sure</button>
-                    <button className="scondary" onClick={closeHandler}>I don't want to submit</button>
+                    <button className="secondary" onClick={closeHandler}>I don't want to submit</button>
                 </div>
             </div>
         </div>
