@@ -3,7 +3,7 @@ import React from 'react';
 const Counter = () => {
     return (
         <div>
-            Laskuri tähän
+            You have 0 tasks on your list
         </div>
     );
 };

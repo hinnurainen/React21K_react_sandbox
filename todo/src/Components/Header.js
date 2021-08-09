@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <div>
             <h1>
-                Heidi's To Do Agenda
+                Heidi's To Do List
             </h1>
             <Counter />
         </div>
