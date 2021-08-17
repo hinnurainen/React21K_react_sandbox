@@ -6,6 +6,12 @@ const reducers = (state = initialState, action) => {
             return {
                 ...state, counter: state.counter + action.note
             }
+
+        case actionTypes.STORENOTE:
+            return {
+                ...state, notes: state.notes.concat({ id: new Date(), note: state.counter }),
+            }
+
         case actionTypes.REMOVENOTE:
             const updatedArray = state.results.filter(item => item.id !== action.item)
             return {
