@@ -19,12 +19,16 @@ const reducer = (state = initialState, action) => {
 
         case actionTypes.ADDFIVE:
             return {
-                ...state, counter: state.counter + 5,
+                ...state, counter: state.counter + action.value,
             }
 
         case actionTypes.MINUSFIVE:
             return {
-                ...state, counter: state.counter - 5,
+                ...state, counter: state.counter - action.value,
+            }
+        case actionTypes.STORERESULTS:
+            return {
+                ...state, results: state.results.concat({ id: new Date(), value: state.counter }),
             }
     }
 
@@ -33,6 +37,20 @@ const reducer = (state = initialState, action) => {
 
 const initialState = {
     counter: 0,
+    results: [
+        {
+            id: 1,
+            value: 10
+        },
+        {
+            id: 2,
+            value: 100
+        },
+        {
+            id: 3,
+            value: 1000
+        },
+    ],
 }
 
 export default reducer;
