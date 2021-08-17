@@ -16,6 +16,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state, counter: 0,
             }
+
+        case actionTypes.ADDFIVE:
+            return {
+                ...state, counter: state.counter + 5,
+            }
+
+        case actionTypes.MINUSFIVE:
+            return {
+                ...state, counter: state.counter - 5,
+            }
     }
 
     return state;
