@@ -8,6 +8,7 @@ class ToDo extends Component {
         return (
             <div>
                 <h1>What needs to be done today?</h1>
+                <h2>You have currently {this.props.storedNotes.length} tasks on your list</h2>
                 <div>
                     <ul>
                         {this.props.storedNotes.map((note) => (
