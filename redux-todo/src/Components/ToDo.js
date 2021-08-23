@@ -8,14 +8,17 @@ class ToDo extends Component {
         return (
             <div>
                 <h1>What needs to be done today?</h1>
-                <h2>Number of tasks to do: {this.props.ctr}</h2>
-                <div>
-                    <input type="text" placeholder="Add a task..."></input>
-                    <button onClick={() => { this.props.onAddNote; this.props.onStoreNote }}>Submit</button>
-                </div>
                 <div>
                     <ul>
-                        {this.props.storedNotes.map(item => <li key={item.id} onClick={() => this.props.onRemoveNote(item.id)}>{item.note}</li>)}
+                        {this.props.storedNotes.map((note) => (
+                            <li key={note.id}>
+                                <input type='checkbox' name={"note" + note.id} id={"note" + note.id} onChange={() => this.props.onNoteUpdate(note.id)}
+                                    checked={note.isDone} />
+                                <label htmlFor={"note" + note.id} className={note.isDone ? "note note-done" : "note"} >
+                                    {note.name}
+                                </label>
+                                <button className={"task-btn"} onClick={() => this.props.onRemoveNote(note.id)}>Delete</button>
+                            </li>))}
                     </ul>
                 </div>
             </div>
@@ -25,16 +28,14 @@ class ToDo extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counter,
         storedNotes: state.notes,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddNote: () => dispatch({ type: actionTypes.ADDNOTE }),
-        onStoreNote: () => dispatch({ type: actionTypes.STORENOTE }),
-        onRemoveNote: (id) => dispatch({ type: actionTypes.REMOVENOTE, item: id })
+        onRemoveNote: (payload) => dispatch({ type: actionTypes.REMOVENOTE, payload }),
+        onNoteUpdate: (payload) => dispatch({ type: actionTypes.UPDATENOTE, payload })
     }
 }
 

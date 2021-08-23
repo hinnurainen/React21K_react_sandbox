@@ -4,39 +4,39 @@ const reducers = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADDNOTE:
             return {
-                ...state, counter: state.counter + action.note
-            }
+                ...state, noteInput: action.payload
+            };
 
         case actionTypes.STORENOTE:
             return {
-                ...state, notes: state.notes.concat({ id: new Date(), note: state.counter }),
-            }
+                ...state, noteInput: "", notes: [...state.notes, { id: new Date(), name: state.noteInput, isDone: false }]
+            };
 
         case actionTypes.REMOVENOTE:
-            const updatedArray = state.results.filter(item => item.id !== action.item)
             return {
-                ...state, notes: updatedArray,
-            }
-    }
+                ...state, notes: state.notes.filter((note) => note.id !== action.payload),
+            };
 
-    return state;
-}
+        case actionTypes.UPDATENOTE:
+            return {
+                ...state, notes: state.notes.map((note) => {
+                    if (note.id === action.payload) {
+                        const updatedNote = { ...note };
+                        updatedNote.isDone = updatedNote.isDone ? false : true; return updatedNote;
+                    } else {
+                        return note;
+                    }
+                }),
+            };
+
+        default:
+            return state;
+    }
+};
 
 const initialState = {
-    counter: 0,
+    noteInput: "",
     notes: [
-        {
-            id: 1,
-            note: "laundry"
-        },
-        {
-            id: 2,
-            note: "food"
-        },
-        {
-            id: 3,
-            note: "walk the dog"
-        },
     ],
 }
 
