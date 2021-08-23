@@ -8,7 +8,7 @@ class ToDoInput extends Component {
         return (
             <form onSubmit={this.props.onStoreNote}>
                 <input type='text' placeholder='Add a task...' onChange={this.props.onAddNote} />
-                <button type='submit'>Submit</button>
+                <button type='submit' className="submitbutton">Submit</button>
             </form>
         );
     }
