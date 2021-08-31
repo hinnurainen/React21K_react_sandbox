@@ -1,3 +1,9 @@
+body {
+  padding: 2rem;
+  background-color: black;
+  color: white;
+}
+
 main {
   padding: 2rem;
 }
@@ -16,13 +22,38 @@ form button {
 }
 
 .todo {
-  color: green;
+  color: white;
 }
 .todo.strike {
-  color: grey;
+  color: darkorange;
   text-decoration: line-through;
 }
 
 button {
   font-size: inherit;
+}
+
+.deletebutton {
+  background-color: darkorange;
+  color: white;
+  border-radius: 5px;
+  margin-left: 1rem;
+}
+
+li {
+  margin: 1rem;
+}
+
+.addnote {
+  background-color: darkorange;
+  color: white;
+}
+
+input {
+  border-radius: 5px;
+}
+
+h1 {
+  font-family: "Acme", sans-serif;
+  font-size: 2.5rem;
 }
