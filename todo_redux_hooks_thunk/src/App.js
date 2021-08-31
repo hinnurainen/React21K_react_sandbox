@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <div>
-      <h1 >What to do today?</h1>
+      <h1 >Notes to myself:</h1>
       <NewNote />
       <NotesList />
     </div>
